@@ -44,7 +44,7 @@ for phone_folder in os.listdir(root_folder_path):
                                     exposure_time = str(exposure_time)
 
                             # 添加到Excel
-                            wws[cnt%5].append([img_path, exposure_time, iso])
+                            wss[cnt%5].append([img_path, exposure_time, iso])
                             cnt+=1
 
 for i in range(5):
