@@ -3,9 +3,11 @@ from openpyxl import Workbook
 import os
 
 # 创建Excel工作簿
-wbs = [Workbook().active for i in range(5)]
+wbs = [Workbook() for i in range(5)]
+wss = []
 for i in range(5):
-    wbs[0].append(["Filename", "Exposure Time", "ISO"])
+    wss.append(wbs[i].active)
+    wss[i].append(["Filename", "Exposure Time", "ISO"])
 
 
 # 文件夹路径
@@ -42,7 +44,7 @@ for phone_folder in os.listdir(root_folder_path):
                                     exposure_time = str(exposure_time)
 
                             # 添加到Excel
-                            wbs[cnt].append([img_path, exposure_time, iso])
+                            wws[cnt%5].append([img_path, exposure_time, iso])
                             cnt+=1
 
 for i in range(5):
